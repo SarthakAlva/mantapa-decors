@@ -5,16 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mantapa Decors</title>
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-
   <!-- Header -->
   <header>
     <div class="container header-container">
@@ -23,104 +17,98 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero">
-    <div class="hero-text">
+  <!-- Hero Section with Background Video -->
+  <section id="home" class="hero">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-text" data-aos="fade-up">
       <h1>We Design Dream Spaces</h1>
       <p>Film Sets, Cultural Processions, Stage Decorations & More</p>
       <a href="#contact" class="btn">Contact Us</a>
     </div>
   </section>
 
-  <!-- About Us Section -->
-  <!-- ================= -->
+  <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <h1>About Mantapa Decors</h1>
-      <p>
+      <h1 data-aos="fade-up">About Mantapa Decors</h1>
+      <p data-aos="fade-up" data-aos-delay="100">
         <strong>Mantapa Decors</strong> is a passionate creative studio that transforms vision into vibrant reality. Based in India, we specialize in delivering visually stunning and culturally rooted decor for a variety of settings.
       </p>
-      <ul>
+      <ul data-aos="fade-up" data-aos-delay="200">
         <li>🎬 Film and TV Set Design</li>
         <li>🎉 Stage and Backdrop Decorations for Cultural Events</li>
         <li>🇮🇳 Processional Tableaux for National Celebrations like Republic Day</li>
       </ul>
-      <p>
+      <p data-aos="fade-up" data-aos-delay="300">
         With years of hands-on experience and an eye for detail, our team brings every project to life with a perfect blend of tradition, storytelling, and design excellence.
       </p>
-      <h2>Our Mission</h2>
-      <p>
+      <h2 data-aos="fade-up" data-aos-delay="400">Our Mission</h2>
+      <p data-aos="fade-up" data-aos-delay="500">
         To transform ordinary spaces into extraordinary, emotionally resonant environments through creativity, collaboration, and cultural expression.
       </p>
-      <h2>Our Vision</h2>
-      <p>
+      <h2 data-aos="fade-up" data-aos-delay="600">Our Vision</h2>
+      <p data-aos="fade-up" data-aos-delay="700">
         To be India's most respected and imaginative decor partner, known for setting the stage — literally — for unforgettable moments.
       </p>
+      <div class="background-gallery">
+        <div class="bg-image bg1" data-aos="fade-up" data-aos-delay="800"></div>
+        <div class="bg-image bg2" data-aos="fade-up" data-aos-delay="1000"></div>
+        <div class="bg-image bg3" data-aos="fade-up" data-aos-delay="1200"></div>
+      </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <!-- ================= -->
-  <section id="services" class="services">
-    <div class="container">
-      <h1>Our Services</h1>
-      <div class="service-list">
-        <div class="service-item">
-          <h2>Film & TV Set Design</h2>
-          <p>Creating immersive, detailed sets tailored for cinematic storytelling.</p>
-        </div>
-        <div class="service-item">
-          <h2>Stage & Backdrop Decorations</h2>
-          <p>Elegant and creative decorations for cultural programs and functions.</p>
-        </div>
-        <div class="service-item">
-          <h2>Tablo & Processional Setups</h2>
-          <p>Designing spectacular displays for national events like Republic Day.</p>
-        </div>
-        <!-- Add more services as needed -->
+  <section id="services">
+    <h2 data-aos="fade-up">Our Services</h2>
+    <div class="service-list">
+      <div class="service-item" data-aos="fade-up">
+        <h3>Film & TV Sets</h3>
+        <p>Creative, realistic, and customizable set designs for the screen.</p>
+      </div>
+      <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+        <h3>Stage Decorations</h3>
+        <p>Elegant stage setups that bring events and performances to life.</p>
+      </div>
+      <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+        <h3>Cultural Processions</h3>
+        <p>Vibrant tableau and decor for traditional and national celebrations.</p>
       </div>
     </div>
   </section>
 
   <!-- Gallery Section -->
-  <!-- ================= -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <h1>Gallery</h1>
-      <div class="gallery-grid">
-        <img src="images/gallery1.jpg" alt="Gallery Image 1" />
-        <img src="images/gallery2.jpg" alt="Gallery Image 2" />
-        <img src="images/gallery3.jpg" alt="Gallery Image 3" />
-        <img src="images/gallery4.jpg" alt="Gallery Image 4" />
-        <img src="images/gallery5.jpg" alt="Gallery Image 5" />
-        <img src="images/gallery6.jpg" alt="Gallery Image 6" />
-        <!-- Add more images as needed -->
-      </div>
+  <section id="gallery">
+    <h2 data-aos="fade-up">Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/Eventpic_1.jpeg" alt="Event Picture 1" data-aos="fade-up" />
+      <img src="images/Eventpic_2.jpeg" alt="Event Picture 2" data-aos="fade-up" data-aos-delay="100" />
+      <img src="images/Eventpic_3.jpeg" alt="Event Picture 3" data-aos="fade-up" data-aos-delay="200" />
     </div>
   </section>
 
   <!-- Contact Section -->
-  <!-- ================= -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h1>Contact Us</h1>
-      <form action="#" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-    </div>
+  <section id="contact">
+    <h2 data-aos="fade-up">Contact Us</h2>
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required data-aos="fade-up" />
+      <input type="email" name="email" placeholder="Your Email" required data-aos="fade-up" data-aos-delay="100" />
+      <textarea name="message" rows="5" placeholder="Your Message" required data-aos="fade-up" data-aos-delay="200"></textarea>
+      <button type="submit" class="btn" data-aos="fade-up" data-aos-delay="300">Send Message</button>
+    </form>
   </section>
 
   <!-- Footer -->
@@ -128,5 +116,43 @@
     <p>&copy; 2025 Mantapa Decors. All rights reserved.</p>
   </footer>
 
+  <!-- AOS Animation Library -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: false,
+      duration: 800,
+      easing: 'ease-in-out',
+    });
+
+    // Navigation scroll and active state
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const id = link.getAttribute('href').substring(1);
+        const target = document.getElementById(id);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 80;
+      document.querySelectorAll('section').forEach(section => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          const id = section.getAttribute('id');
+          document.querySelectorAll('.nav-link').forEach(nav => {
+            nav.classList.toggle('active', nav.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
