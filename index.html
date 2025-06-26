@@ -9,25 +9,27 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <!-- Header inside Hero -->
-  <header class="header-container">
-    <div class="logo-area">
-      <img src="images/mantapadecors_logo.jpeg" alt="Mantapa Decors Logo" class="logo" />
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-area">
+        <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#services" class="nav-link">Services</a></li>
-        <li><a href="#gallery" class="nav-link">Gallery</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Hero Section with background video -->
+  <!-- Hero Section -->
   <section id="home" class="hero">
-    <video autoplay muted loop playsinline>
+    <video autoplay muted loop id="background-video">
       <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
@@ -126,7 +128,7 @@
   <script>
     // Initialize AOS
     AOS.init({
-      once: false, // animations repeat on scroll
+      once: false,
       duration: 800,
       easing: 'ease-in-out',
     });
@@ -143,6 +145,7 @@
             behavior: 'smooth'
           });
         }
+
         // Update active nav class
         document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
         link.classList.add('active');

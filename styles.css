@@ -10,94 +10,82 @@ body {
   background-color: #000;
   color: #fff;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Hero Section */
+/* Header */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: transparent; /* transparent background */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #aaa;
+}
+
+/* Hero */
 .hero {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
+  aspect-ratio: 3 / 2;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   text-align: center;
   padding: 40px 20px;
+  overflow: hidden;
 }
 
-/* Video Background */
-.hero video {
+.hero video#background-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
+  z-index: -1;
 }
 
-/* Header on top of video */
-.header-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  z-index: 10; /* above video */
-  background: transparent;
-  color: white;
-}
-
-/* Logo */
-.logo-area img.logo {
-  height: 50px;
-  width: auto;
-  cursor: pointer;
-}
-
-/* Navigation */
-.header-container nav ul {
-  display: flex;
-  gap: 30px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.header-container nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  transition: color 0.3s ease;
-}
-
-.header-container nav ul li a:hover,
-.header-container nav ul li a.active {
-  color: #f0a500; /* accent color */
-}
-
-/* Hero Text */
 .hero-text {
-  position: relative;
-  z-index: 5;
-  color: white;
-  max-width: 600px;
-  margin-bottom: 40px;
-  padding-top: 150px; /* Push text below header */
   background-color: rgba(0, 0, 0, 0.6);
   padding: 30px;
   border-radius: 12px;
   max-width: 90%;
+  margin-bottom: 40px;
+  color: #fff;
 }
 
-/* Hero Text Headings */
 .hero-text h1 {
   font-size: 2.8rem;
   margin: 0 0 10px;
-  color: #fff;
 }
 
 .hero-text p {
@@ -106,7 +94,6 @@ body {
   color: #ddd;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   background: none;
@@ -125,32 +112,25 @@ body {
   color: #000;
 }
 
-/* Section Styling */
-section {
-  padding: 80px 20px;
-}
-
-section h2 {
+/* Section Styling with transparent black background */
+.about,
+#services,
+#gallery,
+#contact {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 40px auto;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #fff;
+  color: #eee;
 }
 
-section p,
-section li {
-  font-size: 1.1rem;
-  color: #ccc;
-  max-width: 800px;
-  margin: 0 auto 20px;
-}
-
-/* About Section */
+/* About specific tweaks */
 .about h1,
 .about h2 {
-  text-align: center;
-  margin-bottom: 20px;
   color: #fff;
+  margin-bottom: 20px;
 }
 
 /* Services */
@@ -170,6 +150,7 @@ section li {
   text-align: center;
   transition: transform 0.3s ease;
   border: 1px solid #222;
+  color: #ccc;
 }
 
 .service-item:hover {
@@ -179,10 +160,6 @@ section li {
 .service-item h3 {
   color: #fff;
   margin-bottom: 10px;
-}
-
-.service-item p {
-  color: #aaa;
 }
 
 /* Gallery */
@@ -206,7 +183,7 @@ section li {
   transform: scale(1.05);
 }
 
-/* Contact Form */
+/* Contact form */
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -248,7 +225,6 @@ footer {
   .header-container {
     flex-direction: column;
     align-items: flex-start;
-    padding: 15px 20px;
   }
 
   nav ul {
@@ -266,7 +242,7 @@ footer {
   }
 }
 
-/* === Background gallery images in About section */
+/* === Background gallery images in About section === */
 .background-gallery {
   display: flex;
   justify-content: center;
@@ -314,4 +290,12 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Center About section headings */
+.about h1,
+.about h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
 }
