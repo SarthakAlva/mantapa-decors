@@ -9,28 +9,26 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container header-container">
-      <div class="logo-area">
-        <img src="images/mantapadecors_logo.jpeg" alt="Mantapa Decors Logo" class="logo" />
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#gallery" class="nav-link">Gallery</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+  <!-- Header inside Hero -->
+  <header class="header-container">
+    <div class="logo-area">
+      <img src="images/mantapadecors_logo.jpeg" alt="Mantapa Decors Logo" class="logo" />
     </div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Hero Section with Background Video -->
+  <!-- Hero Section with background video -->
   <section id="home" class="hero">
-    <video autoplay muted loop playsinline class="background-video">
-      <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline>
+      <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="hero-text" data-aos="fade-up">
@@ -47,22 +45,28 @@
       <p data-aos="fade-up" data-aos-delay="100">
         <strong>Mantapa Decors</strong> is a passionate creative studio that transforms vision into vibrant reality. Based in India, we specialize in delivering visually stunning and culturally rooted decor for a variety of settings.
       </p>
+
       <ul data-aos="fade-up" data-aos-delay="200">
         <li>🎬 Film and TV Set Design</li>
         <li>🎉 Stage and Backdrop Decorations for Cultural Events</li>
         <li>🇮🇳 Processional Tableaux for National Celebrations like Republic Day</li>
       </ul>
+
       <p data-aos="fade-up" data-aos-delay="300">
         With years of hands-on experience and an eye for detail, our team brings every project to life with a perfect blend of tradition, storytelling, and design excellence.
       </p>
+
       <h2 data-aos="fade-up" data-aos-delay="400">Our Mission</h2>
       <p data-aos="fade-up" data-aos-delay="500">
         To transform ordinary spaces into extraordinary, emotionally resonant environments through creativity, collaboration, and cultural expression.
       </p>
+
       <h2 data-aos="fade-up" data-aos-delay="600">Our Vision</h2>
       <p data-aos="fade-up" data-aos-delay="700">
         To be India's most respected and imaginative decor partner, known for setting the stage — literally — for unforgettable moments.
       </p>
+
+      <!-- Animated Images Container -->
       <div class="background-gallery">
         <div class="bg-image bg1" data-aos="fade-up" data-aos-delay="800"></div>
         <div class="bg-image bg2" data-aos="fade-up" data-aos-delay="1000"></div>
@@ -118,37 +122,41 @@
 
   <!-- AOS Animation Library -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
   <script>
+    // Initialize AOS
     AOS.init({
-      once: false,
+      once: false, // animations repeat on scroll
       duration: 800,
       easing: 'ease-in-out',
     });
 
-    // Navigation scroll and active state
+    // Smooth scroll for nav links
     document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', e => {
+      link.addEventListener('click', (e) => {
         e.preventDefault();
-        const id = link.getAttribute('href').substring(1);
-        const target = document.getElementById(id);
-        if (target) {
+        const targetID = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetID);
+        if (targetSection) {
           window.scrollTo({
-            top: target.offsetTop - 70,
+            top: targetSection.offsetTop - 70,
             behavior: 'smooth'
           });
         }
+        // Update active nav class
         document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
         link.classList.add('active');
       });
     });
 
+    // Update active nav on scroll
     window.addEventListener('scroll', () => {
       const scrollPos = window.scrollY + 80;
       document.querySelectorAll('section').forEach(section => {
         if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
           const id = section.getAttribute('id');
           document.querySelectorAll('.nav-link').forEach(nav => {
-            nav.classList.toggle('active', nav.getAttribute('href') === `#${id}`);
+            nav.classList.toggle('active', nav.getAttribute('href') === '#' + id);
           });
         }
       });
