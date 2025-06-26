@@ -1,9 +1,14 @@
 /* Reset & base styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
   background-color: black;
   color: #f7b7b7;
+  line-height: 1.6;
 }
 
 /* Header styles */
@@ -28,11 +33,6 @@ body {
   width: auto;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 26px;
-}
-
 nav ul {
   list-style: none;
   display: flex;
@@ -45,10 +45,16 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
+  background: none;    /* removed background */
+  border: none;        /* removed border */
+  box-shadow: none;    /* removed box shadow */
+  padding: 0;          /* removed padding */
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: gray;
+  text-decoration: underline; /* optional for clarity on hover */
 }
 
 /* Hero section */
@@ -57,24 +63,69 @@ nav a:hover {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: auto;
-  aspect-ratio: 3 / 2; /* 1536:1024 simplified */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  color: black;
   text-align: center;
-  
+  padding: 20px;
+  aspect-ratio: 3 / 2;
 }
+
 .hero-text {
-  margin-top: -40px;
-  max-width: 800px;
-  padding: 5 40px;
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 90%;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* about page code below */
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #000;
+}
 
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+/* Buttons */
+.btn, .btn-outline {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.btn {
+  background-color: #ffe6e6;
+  color: #000;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #f5c9c9;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #f7b7b7;
+}
+
+.btn-outline:hover {
+  background-color: #f7b7b7;
+}
+
+/* About page */
 .about {
   padding: 60px 20px;
   background-color: #ffe6e6;
@@ -97,7 +148,8 @@ nav a:hover {
   color: #444;
 }
 
-.about p, .about ul {
+.about p,
+.about ul {
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -107,9 +159,7 @@ nav a:hover {
   list-style-type: disc;
 }
 
-
-/* below this is the code for contact us page */
-
+/* Contact page */
 .contact {
   padding: 60px 20px;
   background-color: #fff;
@@ -149,13 +199,123 @@ nav a:hover {
   background-color: #ffe6e6;
   color: #000;
   border: none;
-  cursor: pointer;
   font-weight: bold;
-  padding: 12px 24px;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
 }
 
 .contact .btn:hover {
   background-color: #f5c9c9;
+}
+
+/* Services */
+.services {
+  padding: 60px 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.services h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.service-item {
+  background-color: #ffe6e6;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-item h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #f7b7b7;
+  text-align: center;
+  padding: 20px;
+  color: #222;
+}
+
+/* ------------------- */
+/* Responsive Styles   */
+/* ------------------- */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero {
+    background-size: cover;
+    aspect-ratio: unset;
+    padding: 40px 10px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+
+  .logo {
+    height: 45px;
+  }
+
+  .service-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text {
+    padding: 15px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
 }

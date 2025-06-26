@@ -5,36 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mantapa Decors</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="container header-container">
       <div class="logo-area">
         <img src="images/mantapadecors_logo.jpeg" alt="Mantapa Decors Logo" class="logo" />
-        <!-- <h1>Mantapa Decors</h1> --> <!-- Removed to avoid repetition -->
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
     <div class="hero-text">
-      <h2>We Design Dream Spaces</h2>
+      <h1>We Design Dream Spaces</h1>
       <p>Film Sets, Cultural Processions, Stage Decorations & More</p>
-      <a href="contact.html" class="btn">Contact Us</a>
+      <a href="#contact" class="btn">Contact Us</a>
     </div>
   </section>
 
+  <!-- About Us Section -->
+  <!-- ================= -->
+  <section id="about" class="about">
+    <div class="container">
+      <h1>About Mantapa Decors</h1>
+      <p>
+        <strong>Mantapa Decors</strong> is a passionate creative studio that transforms vision into vibrant reality. Based in India, we specialize in delivering visually stunning and culturally rooted decor for a variety of settings.
+      </p>
+      <ul>
+        <li>🎬 Film and TV Set Design</li>
+        <li>🎉 Stage and Backdrop Decorations for Cultural Events</li>
+        <li>🇮🇳 Processional Tableaux for National Celebrations like Republic Day</li>
+      </ul>
+      <p>
+        With years of hands-on experience and an eye for detail, our team brings every project to life with a perfect blend of tradition, storytelling, and design excellence.
+      </p>
+      <h2>Our Mission</h2>
+      <p>
+        To transform ordinary spaces into extraordinary, emotionally resonant environments through creativity, collaboration, and cultural expression.
+      </p>
+      <h2>Our Vision</h2>
+      <p>
+        To be India's most respected and imaginative decor partner, known for setting the stage — literally — for unforgettable moments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <!-- ================= -->
+  <section id="services" class="services">
+    <div class="container">
+      <h1>Our Services</h1>
+      <div class="service-list">
+        <div class="service-item">
+          <h2>Film & TV Set Design</h2>
+          <p>Creating immersive, detailed sets tailored for cinematic storytelling.</p>
+        </div>
+        <div class="service-item">
+          <h2>Stage & Backdrop Decorations</h2>
+          <p>Elegant and creative decorations for cultural programs and functions.</p>
+        </div>
+        <div class="service-item">
+          <h2>Tablo & Processional Setups</h2>
+          <p>Designing spectacular displays for national events like Republic Day.</p>
+        </div>
+        <!-- Add more services as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <!-- ================= -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <h1>Gallery</h1>
+      <div class="gallery-grid">
+        <img src="images/gallery1.jpg" alt="Gallery Image 1" />
+        <img src="images/gallery2.jpg" alt="Gallery Image 2" />
+        <img src="images/gallery3.jpg" alt="Gallery Image 3" />
+        <img src="images/gallery4.jpg" alt="Gallery Image 4" />
+        <img src="images/gallery5.jpg" alt="Gallery Image 5" />
+        <img src="images/gallery6.jpg" alt="Gallery Image 6" />
+        <!-- Add more images as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <!-- ================= -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Mantapa Decors. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
