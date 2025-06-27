@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Mantapa Decors</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/mantapadecors_logo.png" type="image/png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Inline Page-Specific Styles -->
+  <style>
+    .contact, 
+    .contact p, 
+    .contact a, 
+    .contact h2,
+    .contact form input,
+    .contact form textarea,
+    .contact form button,
+    .contact-details,
+    .tagline {
+      color: #fff;
+    }
+    .contact a {
+      text-decoration: underline;
+      color: #e67e22;
+    }
+    .tagline {
+      max-width: 700px;
+      margin: 40px auto 20px;
+      font-size: 1.25rem;
+      text-align: center;
+      font-style: italic;
+      color: #f39c12;
+    }
+    .contact-details {
+      max-width: 700px;
+      margin: 0 auto 60px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo-area">
+        <a href="index.html">
+          <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
+        </a>
+      </div>
+      <nav>
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <ul id="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact" style="padding-top: 120px;">
+    <div class="container" data-aos="fade-up">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:mantapadecors@gmail.com">mantapadecors@gmail.com</a></p>
+      <p><strong>Prakash Shetty</strong> – <a href="tel:+919341222546">+91 93412 22546</a></p>
+
+      <form action="mailto:mantapadecors@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="tagline">
+        Let's make your event unforgettable with Mantapa Decors — beautiful decorations for every occasion.
+      </div>
+
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:mantapadecors@gmail.com">mantapadecors@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+919341222546">+91 93412 22546</a></p>
+        <p><strong>Address:</strong> 123 Event Street, Your City, Your State</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Mantapa Decors. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+
+      if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener('click', () => {
+          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+          toggleBtn.setAttribute('aria-expanded', String(!expanded));
+          navLinks.classList.toggle('show');
+        });
+
+        // Close menu when any link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
+  <!-- <script src="app.js"></script> -->
+</body>
+</html>

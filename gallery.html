@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mantapa Decors</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Gallery - Mantapa Decors</title>
+
+  <!-- Favicon -->
   <link rel="icon" href="images/mantapadecors_logo.png" type="image/png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header with Navigation -->
   <header>
     <div class="container header-container">
       <div class="logo-area">
@@ -25,35 +33,32 @@
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <video autoplay muted loop id="background-video">
-      <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="hero-text" data-aos="fade-up">
-      <h1>We Design Dream Spaces</h1>
-      <p>Film Sets, Cultural Processions, Stage Decorations & More</p>
-      <a href="about.html" class="btn">Learn More</a>
-    </div>
-  </section>
-
-  <!-- Short About Section -->
-  <section class="about-short">
+  <!-- Gallery Section -->
+  <section class="gallery" style="padding-top: 120px;">
     <div class="container" data-aos="fade-up">
-      <h2>About Mantapa Decors</h2>
-      <p>
-        <strong>Mantapa Decors</strong> is a passionate creative studio that transforms vision into vibrant reality.
-        Based in India, we specialize in delivering visually stunning and culturally rooted decor for a variety of settings.
-      </p>
-      <a href="about.html" class="btn">Read Full Story</a>
+      <h2>Gallery</h2>
+
+      <!-- Auto scrolling gallery -->
+      <div class="auto-scroll-gallery">
+        <div class="scroll-track">
+          <img src="images/Eventpic_1.jpeg" alt="Event Image 1" />
+          <img src="images/Eventpic_2.jpeg" alt="Event Image 2" />
+          <img src="images/Eventpic_3.jpeg" alt="Event Image 3" />
+
+          <!-- Duplicate for smooth loop -->
+          <img src="images/Eventpic_1.jpeg" alt="Event Image 1" />
+          <img src="images/Eventpic_2.jpeg" alt="Event Image 2" />
+          <img src="images/Eventpic_3.jpeg" alt="Event Image 3" />
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -67,25 +72,28 @@
   <script>
     AOS.init({ duration: 800, once: true });
 
-    // Mobile nav toggle
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
 
-      toggleBtn?.addEventListener('click', () => {
-        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-        toggleBtn.setAttribute('aria-expanded', String(!expanded));
-        navLinks.classList.toggle('show');
-      });
-
-      // Optional: Close menu on link click (mobile UX)
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('show');
-          toggleBtn.setAttribute('aria-expanded', 'false');
+      if (toggleBtn && navLinks) {
+        toggleBtn.addEventListener('click', () => {
+          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+          toggleBtn.setAttribute('aria-expanded', String(!expanded));
+          navLinks.classList.toggle('show');
         });
-      });
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
     });
   </script>
+  <!--<script src="app.js"></script> -->
+
 </body>
 </html>
