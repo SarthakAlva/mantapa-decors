@@ -16,7 +16,7 @@ body {
   line-height: 1.6;
   color: #fff;
   background: #000;
-  padding-top: 140px; /* Ensures body clears fixed header */
+  padding-top: 140px; /* Clears fixed header */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -29,21 +29,20 @@ body {
 
 /* Header */
 header {
-  background: #000;
+  background: transparent;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 10000;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
   padding: 20px 0;
+  box-shadow: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional: Add a background and shadow on scroll */
 header.scrolled {
   background: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 4px 10px rgba(255, 126, 34, 0.3);
+  box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
 }
 
 .header-container {
@@ -59,6 +58,7 @@ header.scrolled {
   height: 70px;
   padding: 10px 0;
   user-select: none;
+  cursor: pointer;
 }
 
 /* Navigation */
@@ -81,15 +81,17 @@ nav ul li a {
   text-decoration: none;
   font-weight: 500;
   color: #fff;
-  transition: color 0.3s ease;
   padding: 6px 8px;
   border-radius: 4px;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 nav ul li a.active,
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a:focus {
   color: #e67e22;
   background-color: rgba(230, 126, 34, 0.15);
+  outline: none;
 }
 
 /* Mobile Nav Toggle */
@@ -100,10 +102,17 @@ nav ul li a:hover {
   border: none;
   cursor: pointer;
   color: #fff;
-  position: relative; /* Positioned properly */
-  z-index: 10002; /* On top of nav */
-  padding: 5px 10px; /* Easier to tap on mobile */
+  position: relative;
+  z-index: 10002;
+  padding: 5px 10px;
   user-select: none;
+  transition: color 0.3s ease;
+}
+
+#menu-toggle:hover,
+#menu-toggle:focus {
+  color: #e67e22;
+  outline: none;
 }
 
 /* Hero Section */
@@ -111,7 +120,7 @@ nav ul li a:hover {
   position: relative;
   padding-top: 160px;
   overflow: hidden;
-  min-height: 600px; /* Ensures enough space for hero content */
+  min-height: 600px;
 }
 
 #background-video {
@@ -149,11 +158,11 @@ nav ul li a:hover {
   padding: 12px 30px;
   border: none;
   border-radius: 4px;
-  text-decoration: none;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
   display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover,
@@ -211,10 +220,13 @@ section {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
-.bg-image:hover {
+.bg-image:hover,
+.bg-image:focus {
   transform: scale(1.05);
+  outline: none;
 }
 
 .bg1 { background-image: url('images/Eventpic_1.jpeg'); }
@@ -237,9 +249,11 @@ section {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: box-shadow 0.3s ease, background 0.3s ease;
+  cursor: default;
 }
 
-.service-item:hover {
+.service-item:hover,
+.service-item:focus-within {
   box-shadow: 0 0 15px #e67e22;
   background: #222;
 }
@@ -255,12 +269,13 @@ section {
   width: 100%;
   padding: 30px 0;
   background: #000;
+  user-select: none;
 }
 
 .scroll-track {
   display: flex;
-  gap: 20px;
-  animation: scroll-left 40s linear infinite;
+  gap: 40px;
+  animation: scroll-left 60s linear infinite;
   width: max-content;
 }
 
@@ -269,13 +284,16 @@ section {
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
-  user-select: none;
   pointer-events: none;
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Contact */
@@ -355,31 +373,31 @@ footer {
     z-index: 10002;
   }
 
-  /* Updated nav styles for slide-in from right */
+  /* Mobile nav slide-in */
   nav ul {
     flex-direction: column;
-    align-items: flex-start; /* Align items left for better menu look */
+    align-items: flex-start;
     background-color: #000;
     position: fixed;
-    top: 0;          /* Start at top */
-    right: 0;        /* Position on right */
-    height: 100vh;   /* Full height */
-    width: 250px;    /* Fixed width */
-    padding: 80px 20px; /* Padding top to clear header, some side padding */
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    padding: 80px 20px;
     box-shadow: -2px 0 8px rgba(0, 0, 0, 0.7);
-    transform: translateX(100%); /* Hide off-screen right */
+    transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 10001;
     overflow-y: auto;
   }
 
   nav ul.show {
-    transform: translateX(0); /* Slide in */
+    transform: translateX(0);
   }
 
   nav ul li {
     margin: 15px 0;
-    width: 100%; /* Full width for easier tap */
+    width: 100%;
   }
 
   nav ul li a {
@@ -469,10 +487,13 @@ footer {
   width: 250px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
   transition: box-shadow 0.3s ease;
+  cursor: default;
 }
 
-.team-member:hover {
+.team-member:hover,
+.team-member:focus-within {
   box-shadow: 0 0 20px #e67e22;
+  outline: none;
 }
 
 .team-photo {
@@ -486,4 +507,5 @@ footer {
   border-radius: 4px;
   user-select: none;
   font-size: 1.2rem;
+  cursor: default;
 }

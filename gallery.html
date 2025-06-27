@@ -16,6 +16,36 @@
 
   <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    .auto-scroll-gallery {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .scroll-track {
+      display: flex;
+      animation: scroll-left 60s linear infinite;
+    }
+
+    .scroll-track.paused {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .scroll-track img {
+      max-height: 250px;
+      margin-right: 16px;
+    }
+  </style>
 </head>
 <body>
 
@@ -47,18 +77,10 @@
 
       <!-- Auto scrolling gallery -->
       <div class="auto-scroll-gallery">
-        <div class="scroll-track">
-          <img src="images/Eventpic_1.jpeg" alt="Event Image 1" />
-          <img src="images/Eventpic_2.jpeg" alt="Event Image 2" />
-          <img src="images/Eventpic_3.jpeg" alt="Event Image 3" />
-
-          <!-- Duplicate for smooth loop -->
-          <img src="images/Eventpic_1.jpeg" alt="Event Image 1" />
-          <img src="images/Eventpic_2.jpeg" alt="Event Image 2" />
-          <img src="images/Eventpic_3.jpeg" alt="Event Image 3" />
+        <div class="scroll-track" id="gallery-track">
+          <!-- Images inserted by JS -->
         </div>
       </div>
-
     </div>
   </section>
 
@@ -83,7 +105,6 @@
           navLinks.classList.toggle('show');
         });
 
-        // Close nav on link click (mobile)
         document.querySelectorAll('.nav-link').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('show');
@@ -91,9 +112,35 @@
           });
         });
       }
+
+      const galleryTrack = document.getElementById('gallery-track');
+
+      const loadImages = (folder, prefix, total, altTextPrefix) => {
+        for (let i = 1; i <= total; i++) {
+          const img = document.createElement('img');
+          img.src = `${folder}/${prefix}${i}.jpeg`;
+          img.alt = `${altTextPrefix} ${i}`;
+          galleryTrack.appendChild(img);
+        }
+      };
+
+      loadImages('event_mantapadecors_image', 'MD_Event', 12, 'Event Image');
+      loadImages('tablo_mantapadecors_image', 'MD_tablo', 19, 'Tablo Image');
+      loadImages('event_mantapadecors_image', 'MD_Event', 12, 'Event Image');
+      loadImages('tablo_mantapadecors_image', 'MD_tablo', 19, 'Tablo Image');
+
+      // Pause on hover/touch
+      ['mouseenter', 'touchstart'].forEach(evt =>
+        galleryTrack.addEventListener(evt, () => {
+          galleryTrack.classList.add('paused');
+        })
+      );
+      ['mouseleave', 'touchend'].forEach(evt =>
+        galleryTrack.addEventListener(evt, () => {
+          galleryTrack.classList.remove('paused');
+        })
+      );
     });
   </script>
-  <!--<script src="app.js"></script> -->
-
 </body>
 </html>

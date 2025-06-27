@@ -16,6 +16,12 @@
 
   <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* Keep cursor pointer for the clickable card */
+    .service-item.festive-processions {
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -53,7 +59,7 @@
           <h3>Film Set Design</h3>
           <p>Custom-built sets and art direction for film and television.</p>
         </div>
-        <div class="service-item">
+        <div class="service-item festive-processions" tabindex="0" role="button" aria-pressed="false" aria-label="View Festive Processions Gallery">
           <h3>Festive Processions</h3>
           <p>Float and thematic decorations for religious and cultural events.</p>
         </div>
@@ -83,12 +89,25 @@
           navLinks.classList.toggle('show');
         });
 
-        // Close nav on link click (mobile fix)
         document.querySelectorAll('.nav-link').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('show');
             toggleBtn.setAttribute('aria-expanded', 'false');
           });
+        });
+      }
+
+      // Click and keyboard event for Festive Processions
+      const festiveItem = document.querySelector('.service-item.festive-processions');
+      if (festiveItem) {
+        festiveItem.addEventListener('click', () => {
+          window.location.href = 'festive-processions-gallery.html';
+        });
+        festiveItem.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.location.href = 'festive-processions-gallery.html';
+          }
         });
       }
     });
