@@ -16,10 +16,40 @@
 
   <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
   <style>
-    /* Keep cursor pointer for the clickable card */
-    .service-item.festive-processions {
+    .service-item.festive-processions,
+    .service-item.stage-decorations {
       cursor: pointer;
+    }
+
+    .image-preview {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .image-preview img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out, background-color 1.5s ease-in-out;
+      background-color: #f5f5dc;
+    }
+
+    .image-preview img.visible {
+      opacity: 1;
+    }
+
+    .preview-button {
+      margin-top: 15px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #a67c52;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
     }
   </style>
 </head>
@@ -29,12 +59,12 @@
   <header>
     <div class="container header-container">
       <div class="logo-area">
-        <a href="index.html">
+        <a href="index.html" aria-label="Home">
           <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
         </a>
       </div>
       <nav>
-        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
         <ul id="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
@@ -51,18 +81,34 @@
     <div class="container" data-aos="fade-up">
       <h2>Our Services</h2>
       <div class="service-list">
-        <div class="service-item">
+
+        <div class="service-item stage-decorations" tabindex="0" role="button" aria-label="View Stage Decorations Gallery">
           <h3>Stage Decorations</h3>
-          <p>Traditional and modern stage settings for various ceremonies and events.</p>
+          <p>Traditional and modern stage settings for weddings, receptions, and cultural events.</p>
+
+          <div class="image-preview">
+            <img id="stage-preview" src="event_mantapadecors_image/MD_Event1.jpeg" alt="Stage Decoration Preview" />
+          </div>
+
+          <a href="services.html#stage-decorations-gallery" class="preview-button" onclick="window.location.href='stage-decorations-gallery.html'; return false;">View Gallery</a>
         </div>
+
         <div class="service-item">
           <h3>Film Set Design</h3>
-          <p>Custom-built sets and art direction for film and television.</p>
+          <p>Custom-designed sets, art direction, and props for film, TV, and theatre productions.</p>
         </div>
-        <div class="service-item festive-processions" tabindex="0" role="button" aria-pressed="false" aria-label="View Festive Processions Gallery">
+
+        <div class="service-item festive-processions" tabindex="0" role="button" aria-label="View Festive Processions Gallery">
           <h3>Festive Processions</h3>
-          <p>Float and thematic decorations for religious and cultural events.</p>
+          <p>Thematic floats and decorative installations for religious festivals and cultural parades.</p>
+
+          <div class="image-preview">
+            <img id="festive-preview" src="tablo_mantapadecors_image/MD_tablo1.jpeg" alt="Festive Procession Preview" />
+          </div>
+
+          <a href="festive-processions-gallery.html" class="preview-button">View Gallery</a>
         </div>
+
       </div>
       <a href="contact.html" class="btn" style="margin-top: 30px; display: inline-block;">Contact Us</a>
     </div>
@@ -97,7 +143,7 @@
         });
       }
 
-      // Click and keyboard event for Festive Processions
+      // Handle click and keyboard interaction for festive item
       const festiveItem = document.querySelector('.service-item.festive-processions');
       if (festiveItem) {
         festiveItem.addEventListener('click', () => {
@@ -110,6 +156,63 @@
           }
         });
       }
+
+      // Handle click and keyboard interaction for stage decorations item
+      const stageItem = document.querySelector('.service-item.stage-decorations');
+      if (stageItem) {
+        stageItem.addEventListener('click', () => {
+          window.location.href = 'stage-decorations-gallery.html';
+        });
+        stageItem.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.location.href = 'stage-decorations-gallery.html';
+          }
+        });
+      }
+
+      // Fade image rotation logic for festive processions preview
+      const festiveImages = [
+        'tablo_mantapadecors_image/MD_tablo1.jpeg',
+        'tablo_mantapadecors_image/MD_tablo2.jpeg',
+        'tablo_mantapadecors_image/MD_tablo3.jpeg'
+      ];
+      let festiveIndex = 0;
+      const festivePreview = document.getElementById('festive-preview');
+
+      function showNextFestiveImage() {
+        festivePreview.classList.remove('visible');
+        setTimeout(() => {
+          festiveIndex = (festiveIndex + 1) % festiveImages.length;
+          festivePreview.src = festiveImages[festiveIndex];
+          festivePreview.classList.add('visible');
+        }, 1500);
+      }
+
+      festivePreview.classList.add('visible');
+      setInterval(showNextFestiveImage, 4000);
+
+      // Fade image rotation logic for stage decorations preview
+      const stageImages = [
+        'event_mantapadecors_image/MD_Event1.jpeg',
+        'event_mantapadecors_image/MD_Event2.jpeg',
+        'event_mantapadecors_image/MD_Event3.jpeg'
+      ];
+      let stageIndex = 0;
+      const stagePreview = document.getElementById('stage-preview');
+
+      function showNextStageImage() {
+        stagePreview.classList.remove('visible');
+        setTimeout(() => {
+          stageIndex = (stageIndex + 1) % stageImages.length;
+          stagePreview.src = stageImages[stageIndex];
+          stagePreview.classList.add('visible');
+        }, 1500);
+      }
+
+      stagePreview.classList.add('visible');
+      setInterval(showNextStageImage, 4000);
+
     });
   </script>
 </body>

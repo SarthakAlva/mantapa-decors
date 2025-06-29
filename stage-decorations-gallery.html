@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Festive Processions Gallery - Mantapa Decors</title>
+  <title>Stage Decorations Gallery - Mantapa Decors</title>
 
   <!-- Styles & Fonts -->
   <link rel="stylesheet" href="styles.css" />
@@ -11,24 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Meta SEO -->
-  <meta name="description" content="Mantapa Decors - Gallery of Festive Processions and Cultural Decor." />
-  <meta name="author" content="Mantapa Decors" />
-
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'Playfair Display', serif;
       background: #F2F2F2;
       color: #000;
       padding-top: 120px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -48,7 +36,6 @@
       font-weight: 700;
       color: #5a4e3a;
       margin-bottom: 40px;
-      font-size: clamp(2rem, 5vw, 3rem);
     }
 
     .gallery {
@@ -66,14 +53,11 @@
       box-shadow: 0 2px 8px rgba(182, 176, 159, 0.6);
       transition: transform 0.3s ease;
       cursor: pointer;
-      user-select: none;
       background: #fff;
     }
 
-    .gallery img:hover,
-    .gallery img:focus-visible {
+    .gallery img:hover {
       transform: scale(1.05);
-      outline: 2px solid #5a4e3a;
     }
 
     .nav-buttons {
@@ -81,7 +65,6 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
     }
 
     .btn {
@@ -93,16 +76,12 @@
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      text-align: center;
       transition: background 0.3s ease, transform 0.2s ease;
-      user-select: none;
     }
 
-    .btn:hover,
-    .btn:focus-visible {
+    .btn:hover {
       background: #9c927f;
       transform: scale(1.05);
-      outline: none;
     }
 
     footer {
@@ -111,12 +90,10 @@
       background: #B6B09F;
       color: #000;
       font-size: 0.9rem;
-      font-family: 'Playfair Display', serif;
       margin-top: auto;
       border-radius: 0 0 12px 12px;
     }
 
-    /* Modal Zoom Styles */
     #img-modal {
       position: fixed;
       display: none;
@@ -141,17 +118,9 @@
       width: 100%; height: 100%;
       cursor: zoom-out;
     }
-
-    @media (max-width: 768px) {
-      .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-    }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="container header-container">
       <div class="logo-area">
@@ -162,29 +131,26 @@
       <nav>
         <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
         <ul id="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="festive-processions-gallery.html" class="nav-link active" aria-current="page">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="stage-decorations-gallery.html" class="active">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container" role="main">
-    <h1>Festive Processions Gallery</h1>
-
-    <div class="gallery" id="gallery" aria-label="Gallery of Festive Processions"></div>
-
+    <h1>Stage Decorations Gallery</h1>
+    <div class="gallery" id="gallery"></div>
     <div class="nav-buttons">
-      <button class="btn" onclick="history.back()" aria-label="Go back to previous page">Back</button>
-      <a href="contact.html" class="btn" aria-label="Contact Mantapa Decors">Contact Us</a>
+      <button class="btn" onclick="history.back()">Back</button>
+      <a href="contact.html" class="btn">Contact Us</a>
     </div>
   </main>
 
-  <!-- Modal Viewer -->
-  <div id="img-modal" aria-hidden="true">
+  <div id="img-modal">
     <div class="modal-backdrop"></div>
     <img id="modal-img" src="" alt="Zoomed Image" />
   </div>
@@ -193,49 +159,34 @@
     &copy; 2025 Mantapa Decors. All rights reserved.
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
-
     const gallery = document.getElementById('gallery');
-    const images = [
-      'MD_tablo19.jpeg', 'MD_tablo18.jpeg', 'MD_tablo17.jpeg',
-      'MD_tablo16.jpeg', 'MD_tablo15.jpeg', 'MD_tablo14.jpeg',
-      'MD_tablo13.jpeg', 'MD_tablo12.jpeg', 'MD_tablo11.jpeg',
-      'MD_tablo10.jpeg', 'MD_tablo9.jpeg', 'MD_tablo8.jpeg',
-      'MD_tablo7.jpeg', 'MD_tablo6.jpeg', 'MD_tablo5.jpeg',
-      'MD_tablo4.jpeg', 'MD_tablo3.jpeg', 'MD_tablo2.jpeg',
-      'MD_tablo1.jpeg'
-    ];
-    const basePath = 'tablo_mantapadecors_image/';
+    const basePath = 'event_mantapadecors_image/';
 
-    images.forEach((imgName, index) => {
+    // Auto-generate filenames based on fixed naming scheme
+    const totalImages = 12; // Update this number when new images are added
+    for (let i = totalImages; i >= 1; i--) {
       const img = document.createElement('img');
-      img.src = basePath + imgName;
-      img.alt = `Festive Procession Image ${images.length - index}`;
+      img.src = `${basePath}MD_Event${i}.jpeg`;
+      img.alt = `Stage Decoration Image ${i}`;
       img.loading = 'lazy';
       gallery.appendChild(img);
-    });
+    }
 
-    // Modal Zoom Logic
     const modal = document.getElementById('img-modal');
     const modalImg = document.getElementById('modal-img');
 
-    gallery.addEventListener('click', (e) => {
+    gallery.addEventListener('click', e => {
       if (e.target.tagName === 'IMG') {
         modalImg.src = e.target.src;
         modal.style.display = 'flex';
-        modal.setAttribute('aria-hidden', 'false');
       }
     });
 
     modal.addEventListener('click', () => {
       modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
     });
 
-    // Mobile menu toggle logic
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
 

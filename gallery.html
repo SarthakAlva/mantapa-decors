@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery - Mantapa Decors</title>
 
   <!-- Favicon -->
@@ -21,11 +21,13 @@
     .auto-scroll-gallery {
       overflow: hidden;
       white-space: nowrap;
+      user-select: none;
     }
 
     .scroll-track {
       display: flex;
       animation: scroll-left 60s linear infinite;
+      will-change: transform;
     }
 
     .scroll-track.paused {
@@ -44,6 +46,29 @@
     .scroll-track img {
       max-height: 250px;
       margin-right: 16px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .scroll-track img:hover,
+    .scroll-track img:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Focus outline for accessibility 
+    #menu-toggle:focus {
+      outline: 3px solid #e67e22;
+      outline-offset: 2px;
+    }*/
+
+    @media (max-width: 768px) {
+      .scroll-track img {
+        max-height: 150px;
+        margin-right: 12px;
+      }
     }
   </style>
 </head>
@@ -53,36 +78,38 @@
   <header>
     <div class="container header-container">
       <div class="logo-area">
-        <a href="index.html">
+        <a href="index.html" aria-label="Mantapa Decors Home">
           <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
         </a>
       </div>
       <nav>
         <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        <ul id="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <ul id="nav-links" role="menu">
+          <li><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
+          <li><a href="gallery.html" class="nav-link active" role="menuitem" aria-current="page">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Gallery Section -->
-  <section class="gallery" style="padding-top: 120px;">
-    <div class="container" data-aos="fade-up">
-      <h2>Gallery</h2>
+  <main>
+    <section class="gallery" style="padding-top: 120px;">
+      <div class="container" data-aos="fade-up">
+        <h2>Gallery</h2>
 
-      <!-- Auto scrolling gallery -->
-      <div class="auto-scroll-gallery">
-        <div class="scroll-track" id="gallery-track">
-          <!-- Images inserted by JS -->
+        <!-- Auto scrolling gallery -->
+        <div class="auto-scroll-gallery" aria-label="Auto scrolling gallery of Mantapa Decors images" role="list">
+          <div class="scroll-track" id="gallery-track" role="list">
+            <!-- Images inserted by JS -->
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -120,22 +147,26 @@
           const img = document.createElement('img');
           img.src = `${folder}/${prefix}${i}.jpeg`;
           img.alt = `${altTextPrefix} ${i}`;
+          img.loading = 'lazy';
+          img.tabIndex = 0;
           galleryTrack.appendChild(img);
         }
       };
 
+      // Load images twice each for seamless scrolling
       loadImages('event_mantapadecors_image', 'MD_Event', 12, 'Event Image');
       loadImages('tablo_mantapadecors_image', 'MD_tablo', 19, 'Tablo Image');
       loadImages('event_mantapadecors_image', 'MD_Event', 12, 'Event Image');
       loadImages('tablo_mantapadecors_image', 'MD_tablo', 19, 'Tablo Image');
 
-      // Pause on hover/touch
+      // Pause animation on hover or touch
       ['mouseenter', 'touchstart'].forEach(evt =>
         galleryTrack.addEventListener(evt, () => {
           galleryTrack.classList.add('paused');
         })
       );
-      ['mouseleave', 'touchend'].forEach(evt =>
+
+      ['mouseleave', 'touchend', 'touchcancel'].forEach(evt =>
         galleryTrack.addEventListener(evt, () => {
           galleryTrack.classList.remove('paused');
         })

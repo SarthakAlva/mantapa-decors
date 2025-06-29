@@ -4,10 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About - Mantapa Decors</title>
+
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="images/mantapadecors_logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    .team-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    .team-list li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .team-list img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .team-list div p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .read-more-btn {
+      background-color: #a67c52;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+
+    .read-more-btn:hover {
+      background-color: #8c663f;
+    }
+
+    .expandable-bio {
+      margin-top: 1rem;
+      display: none;
+      text-align: left;
+    }
+
+    .expandable-bio.visible {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,12 +71,12 @@
   <header>
     <div class="container header-container">
       <div class="logo-area">
-        <a href="index.html">
+        <a href="index.html" aria-label="Go to Home Page">
           <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
         </a>
       </div>
       <nav>
-        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
         <ul id="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link active">About</a></li>
@@ -37,21 +93,42 @@
     <div class="container" data-aos="fade-up">
       <h2>About Mantapa Decors</h2>
       <p>
-        Mantapa Decors is a passionate creative studio that transforms vision into vibrant reality.
-        Based in India, we specialize in delivering visually stunning and culturally rooted decor for a variety of settings.
+        <strong>Mantapa Decors</strong> is a passionate creative studio that transforms vision into vibrant reality.
+        Based in India, we specialize in delivering visually stunning and culturally rooted decor for film sets, processions, weddings, and more.
       </p>
 
       <h3>Meet the Team</h3>
-      <ul>
-        <li><strong>Prakash Shetty</strong> – Founder and Lead</li>
-        <li><strong>Champa Shetty</strong> – Co-founder and Design Expert</li>
+      <ul class="team-list">
+        <li>
+          <img src="images/MD_prakashshetty.jpeg" alt="Prakash Shetty Profile Picture" />
+          <div>
+            <strong>Prakash Shetty</strong> – Founder & Creative Lead
+            <p>Prakash Shetty is a producer and actor who has produced the critically acclaimed film <em>Ammachi Yemba Nenapu</em> and acted in <em>Koli Esru</em>. He is also an experienced theatre actor and theatre singer, actively performing with the Rangamantapa team.</p>
+          </div>
+        </li>
+        <li>
+          <img src="images/MD_champashetty.jpeg" alt="Champa Shetty Profile Picture" />
+          <div>
+            <strong>Champa Shetty</strong> – Co-founder & Design Expert
+            <p>Champa Shetty is an Indian actor, filmmaker, screenwriter, and voice-over artist primarily working in the Kannada film industry and theatre. Shetty is known for her women-centric films.</p>
+            <button class="read-more-btn" aria-expanded="false" aria-controls="champa-bio">Read More</button>
+            <div id="champa-bio" class="expandable-bio" hidden>
+              <h4>Career</h4>
+              <p>She started her career as a successful voice-over/dubbing artist and won the Karnataka State Film Award for Best Dubbing Artist (Female) in 2007–08 for <em>Kurunadu</em>. In the early 2000s, she worked as a prime time news reader for Udaya News.</p>
+              <p>Champa has appeared in TV series like <em>Kaveri</em> (Nagathihalli Chandrashekhar), <em>Nakutanthi</em> (B. Suresha), <em>Parama Pada</em> (Yogaraj Bhat), and <em>Mukta Mukta</em> (T. N. Seetharam).</p>
+              <p>She made her acting debut in <em>Belakinedege</em> and later appeared in <em>Harikatha Prasanga / Chronicles of Hari</em> by Ananya Kasaravalli.</p>
+              <p>Her directorial debut <em>Ammachi Yemba Nenapu</em> (2018) was critically acclaimed. Her second film <em>Koli Esru</em> (Chicken Curry) won Best Film in the Indian Cinema Competition at BIFFes 2023.</p>
+              <p>In addition to film and television, she directs Kannada theatre, including plays such as <em>Gandhi Banda</em> and <em>Akku</em>.</p>
+            </div>
+          </div>
+        </li>
       </ul>
 
-      <h3>Photos</h3>
+      <h3>Photo Highlights</h3>
       <div class="background-gallery">
-        <div class="bg-image bg1"></div>
-        <div class="bg-image bg2"></div>
-        <div class="bg-image bg3"></div>
+        <div class="bg-image bg1" aria-label="Decor Setup 1"></div>
+        <div class="bg-image bg2" aria-label="Decor Setup 2"></div>
+        <div class="bg-image bg3" aria-label="Decor Setup 3"></div>
       </div>
     </div>
   </section>
@@ -70,19 +147,29 @@
       const toggleBtn = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
 
-      if (toggleBtn && navLinks) {
-        toggleBtn.addEventListener('click', () => {
-          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-          toggleBtn.setAttribute('aria-expanded', String(!expanded));
-          navLinks.classList.toggle('show');
-        });
+      toggleBtn?.addEventListener('click', () => {
+        const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!expanded));
+        navLinks.classList.toggle('show');
+      });
 
-        // Optional: Close menu when a nav link is clicked (for better UX on mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.addEventListener('click', () => {
-            navLinks.classList.remove('show');
-            toggleBtn.setAttribute('aria-expanded', 'false');
-          });
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Toggle Champa bio
+      const btn = document.querySelector('.read-more-btn');
+      const bio = document.getElementById('champa-bio');
+
+      if (btn && bio) {
+        btn.addEventListener('click', () => {
+          const isVisible = bio.classList.toggle('visible');
+          bio.hidden = !isVisible;
+          btn.setAttribute('aria-expanded', String(isVisible));
+          btn.textContent = isVisible ? 'Read Less' : 'Read More';
         });
       }
     });

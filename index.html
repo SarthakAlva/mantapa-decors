@@ -4,10 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mantapa Decors</title>
+
+  <!-- Styles & Fonts -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="images/mantapadecors_logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Meta SEO -->
+  <meta name="description" content="Mantapa Decors - Creating stunning cultural decorations and event setups across India." />
+  <meta name="author" content="Mantapa Decors" />
 </head>
 <body>
 
@@ -15,14 +21,14 @@
   <header>
     <div class="container header-container">
       <div class="logo-area">
-        <a href="index.html">
+        <a href="index.html" aria-label="Go to Home Page">
           <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
         </a>
       </div>
       <nav>
-        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+        <button id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
         <ul id="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -34,18 +40,27 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <video autoplay muted loop id="background-video">
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto" 
+      id="background-video" 
+      poster="images/backup-image.jpg"
+      aria-hidden="true"
+    >
       <source src="images/mantapadecors_tempvideo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="hero-text" data-aos="fade-up">
       <h1>We Design Dream Spaces</h1>
-      <p>Film Sets, Cultural Processions, Stage Decorations & More</p>
+      <p>Film Sets, Cultural Processions, Stage Decorations &amp; More</p>
       <a href="about.html" class="btn">Learn More</a>
     </div>
   </section>
 
-  <!-- Short About Section -->
+  <!-- About Short Section -->
   <section class="about-short">
     <div class="container" data-aos="fade-up">
       <h2>About Mantapa Decors</h2>
@@ -62,12 +77,12 @@
     <p>&copy; 2025 Mantapa Decors. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- AOS Animation & Mobile Navigation Script -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
 
-    // Mobile nav toggle
+    // Mobile Navigation Toggle
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('menu-toggle');
       const navLinks = document.getElementById('nav-links');
@@ -78,7 +93,7 @@
         navLinks.classList.toggle('show');
       });
 
-      // Optional: Close menu on link click (mobile UX)
+      // Close mobile menu on link click
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('show');

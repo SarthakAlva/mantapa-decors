@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact - Mantapa Decors</title>
 
   <!-- Favicon -->
@@ -14,92 +14,81 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet" />
 
-  <!-- AOS CSS -->
+  <!-- AOS Animation CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Inline Page-Specific Styles -->
-  <style>
-    .contact, 
-    .contact p, 
-    .contact a, 
-    .contact h2,
-    .contact form input,
-    .contact form textarea,
-    .contact form button,
-    .contact-details,
-    .tagline {
-      color: #fff;
-    }
-    .contact a {
-      text-decoration: underline;
-      color: #e67e22;
-    }
-    .tagline {
-      max-width: 700px;
-      margin: 40px auto 20px;
-      font-size: 1.25rem;
-      text-align: center;
-      font-style: italic;
-      color: #f39c12;
-    }
-    .contact-details {
-      max-width: 700px;
-      margin: 0 auto 60px;
-      text-align: center;
-      font-weight: 500;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-  </style>
+  <meta name="description" content="Contact Mantapa Decors - Get in touch for stunning cultural decorations and event setups." />
+  <meta name="author" content="Mantapa Decors" />
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header with Navigation -->
   <header>
     <div class="container header-container">
       <div class="logo-area">
-        <a href="index.html">
+        <a href="index.html" aria-label="Mantapa Decors Home">
           <img src="images/mantapadecors_logo.png" alt="Mantapa Decors Logo" class="logo" />
         </a>
       </div>
       <nav>
         <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-        <ul id="nav-links">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        <ul id="nav-links" role="menu">
+          <li><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
+          <li><a href="gallery.html" class="nav-link" role="menuitem">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link active" role="menuitem" aria-current="page">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Contact Section -->
-  <section class="contact" style="padding-top: 120px;">
-    <div class="container" data-aos="fade-up">
-      <h2>Contact Us</h2>
-      <p>Email: <a href="mailto:mantapadecors@gmail.com">mantapadecors@gmail.com</a></p>
-      <p><strong>Prakash Shetty</strong> – <a href="tel:+919341222546">+91 93412 22546</a></p>
+  <!-- Main Contact Section -->
+  <main>
+    <section class="contact-section" style="padding-top: 120px;">
+      <div class="container" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you! Reach out with any questions, inquiries, or project ideas.</p>
 
-      <form action="mailto:mantapadecors@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+        <form action="#" method="POST" class="contact-form" aria-label="Contact form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
 
-      <div class="tagline">
-        Let's make your event unforgettable with Mantapa Decors — beautiful decorations for every occasion.
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
       </div>
+    </section>
 
-      <div class="contact-details">
-        <p><strong>Email:</strong> <a href="mailto:mantapadecors@gmail.com">mantapadecors@gmail.com</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+919341222546">+91 93412 22546</a></p>
-        <p><strong>Address:</strong> 123 Event Street, Your City, Your State</p>
+    <!-- Contact Info and Map Section -->
+    <section class="contact-info-map" style="padding: 60px 20px; background-color: #f9f9f9;" data-aos="fade-up">
+      <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 20px;">Our Office</h3>
+
+        <p style="font-family: 'Poppins', sans-serif; color: #333;"><strong>Address:</strong> # 450, 3rd Floor, 5th Block, Mahaveer Cornet Apts, K. S. Town, Bangalore</p>
+        <p style="font-family: 'Poppins', sans-serif; color: #333;"><strong>Mobile:</strong> <a href="tel:+919341222546" style="color: #e67e22; text-decoration: none;">9341222546</a></p>
+        <p style="font-family: 'Poppins', sans-serif; color: #333;"><strong>Email:</strong> <a href="mailto:mantapadecors@yahoo.com" style="color: #e67e22; text-decoration: none;">mantapadecors@yahoo.com</a></p>
+
+        <!-- Google Map -->
+        <div style="margin-top: 30px;">
+          <iframe
+            src="https://www.google.com/maps?q=Mahaveer+Cornet+Apartments,+Kengeri+S+Town,+Bangalore&output=embed"
+            width="100%"
+            height="300"
+            style="border:0; border-radius: 8px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -122,7 +111,6 @@
           navLinks.classList.toggle('show');
         });
 
-        // Close menu when any link is clicked
         document.querySelectorAll('.nav-link').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('show');
@@ -132,6 +120,5 @@
       }
     });
   </script>
-  <!-- <script src="app.js"></script> -->
 </body>
 </html>
